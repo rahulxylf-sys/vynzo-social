@@ -1357,7 +1357,7 @@ async function loadComments(postId){
               p.full_name || p.username || "User"
             )}
           </b>
-          ${escapeHtml(c.content)}
+          ${escapeHtml(c.comment)}
         </div>
         `;
 
@@ -1370,10 +1370,10 @@ async function addComment(postId){
   const input =
     $("commentInput-"+postId);
 
-  const content =
+  const comment =
     input.value.trim();
 
-  if(!content) return;
+  if(!comment) return;
 
   const {error} =
     await supabaseClient
@@ -1381,7 +1381,7 @@ async function addComment(postId){
       .insert({
         post_id:postId,
         user_id:currentUser.id,
-        content
+        comment 
       });
 
   if(error){
