@@ -1515,42 +1515,108 @@ FEED
 
 async function loadFeed(){
 
-const box =
-document.getElementById("feed");
+  const box = document.getElementById("feed");
 
-box.innerHTML =
-'<div class="card empty">⏳ Loading posts...</div>';
+  box.innerHTML =
+    '<div class="card empty">⏳ Loading posts...</div>';
 
-const {data,error} =
-await supabaseClient
-.from("posts")
-.select(`
-*,
-profiles(
-id,
-username,
-full_name,
-avatar_url
-)
-`)
-.order(
-"created_at",
-{
-ascending:false
-}
-);
+  try {
 
-if(error){
+    // 1. Get posts without embedding profiles
+    const { data: posts, error: postError } =
+      await supabaseClient
+        .from("posts")
+        .select("*")
+        .order("created_at", {
+          ascending: false
+        });
 
-console.error(error);
+    if(postError){
+      throw postError;
+    }
 
-box.innerHTML =
-'<div class="card empty">'+
-'❌ Unable to load posts.<br>'+
-escapeHtml(error.message)+
-'</div>';
+    if(!posts || posts.length === 0){
 
-return;
+      box.innerHTML =
+        '<div class="card empty">' +
+        'No posts yet 🚀' +
+        '</div>';
+
+      return;
+    }
+
+    // 2. Get all profile IDs used by these posts
+    const userIds = [
+      ...new Set(
+        posts
+          .map(p => p.user_id)
+          .filter(Boolean)
+      )
+    ];
+
+    let profiles = [];
+
+    if(userIds.length > 0){
+
+      const { data: profileData, error: profileError } =
+        await supabaseClient
+          .from("profiles")
+          .select(
+            "id,username,full_name,avatar_url"
+          )
+          .in("id", userIds);
+
+      if(profileError){
+        throw profileError;
+      }
+
+      profiles = profileData || [];
+    }
+
+    // 3. Connect each post with its profile manually
+    allPosts = posts.map(post => {
+
+      const profile =
+        profiles.find(
+          p => p.id === post.user_id
+        ) || {};
+
+      return {
+        ...post,
+        profiles: profile
+      };
+
+    });
+
+    // 4. Render feed
+    box.innerHTML =
+      allPosts
+        .map(renderPost)
+        .join("");
+
+    // 5. Load comments
+    for(const post of allPosts){
+
+      await loadComments(post.id);
+
+    }
+
+  } catch(error){
+
+    console.error(
+      "VYNZO Feed Error:",
+      error
+    );
+
+    box.innerHTML =
+      '<div class="card empty">' +
+      '❌ Unable to load posts.<br><br>' +
+      '<small>' +
+      escapeHtml(error.message) +
+      '</small>' +
+      '</div>';
+
+  }
 
 }
 
