@@ -16,309 +16,663 @@
 }
 
 body{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at top,#252047 0%,#0b0b12 45%,#050507 100%);
+  background:#09090d;
   color:white;
+  min-height:100vh;
+}
+
+button,input,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* AUTH */
+
+#authPage{
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   padding:20px;
+  background:
+  radial-gradient(circle at top,#28204f 0%,#100d20 42%,#050507 100%);
 }
 
-.container{
+.authBox{
   width:100%;
-  max-width:430px;
+  max-width:440px;
+  background:rgba(30,30,38,.88);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
 }
 
 .logo{
   text-align:center;
-  font-size:34px;
+  font-size:36px;
   font-weight:800;
-  letter-spacing:1px;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .logo span{
-  color:#8b5cf6;
+  color:#9b5cff;
 }
 
-.subtitle{
+.tagline{
   text-align:center;
   color:#aaa;
   margin-bottom:25px;
 }
 
-.card{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  backdrop-filter:blur(18px);
-  border-radius:24px;
-  padding:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,.4);
-}
-
 .tabs{
   display:flex;
-  background:#111118;
-  border-radius:13px;
-  padding:4px;
+  background:#111116;
+  border-radius:15px;
+  padding:5px;
   margin-bottom:22px;
 }
 
 .tabs button{
-  width:50%;
-  padding:12px;
+  flex:1;
   border:0;
-  border-radius:10px;
+  padding:14px;
+  border-radius:12px;
   background:transparent;
   color:#aaa;
   font-weight:bold;
 }
 
 .tabs button.active{
-  background:#8b5cf6;
+  background:#914cff;
   color:white;
 }
 
-input{
+.input{
   width:100%;
-  padding:14px;
+  padding:16px;
   margin-bottom:13px;
-  border-radius:12px;
-  border:1px solid #333;
-  background:#101016;
-  color:white;
+  border:1px solid #30303a;
+  border-radius:15px;
   outline:none;
-}
-
-input:focus{
-  border-color:#8b5cf6;
-}
-
-.main-btn{
-  width:100%;
-  padding:14px;
-  border:0;
-  border-radius:13px;
-  background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+  background:#111116;
   color:white;
-  font-size:16px;
-  font-weight:bold;
-  margin-top:5px;
 }
 
-.google-btn{
+.input:focus{
+  border-color:#9254ff;
+}
+
+.primary{
   width:100%;
-  padding:13px;
-  border:1px solid #444;
-  border-radius:13px;
+  border:0;
+  padding:16px;
+  border-radius:15px;
+  background:linear-gradient(135deg,#a15cff,#7223e9);
+  color:white;
+  font-weight:bold;
+  margin-top:4px;
+}
+
+.google{
+  width:100%;
+  padding:16px;
+  border:0;
+  border-radius:15px;
   background:white;
   color:#111;
-  font-size:15px;
   font-weight:bold;
-  margin-top:15px;
+  margin-top:18px;
 }
 
-.divider{
+.or{
   display:flex;
   align-items:center;
   gap:10px;
   color:#777;
-  margin:18px 0;
-  font-size:13px;
+  margin-top:18px;
 }
 
-.divider:before,
-.divider:after{
+.or:before,.or:after{
   content:"";
   height:1px;
-  background:#333;
+  background:#38383f;
   flex:1;
 }
 
 .message{
   text-align:center;
-  margin-top:15px;
+  margin-top:14px;
+  color:#bbb;
   font-size:14px;
-  color:#aaa;
 }
 
-.profile{
-  text-align:center;
+/* APP */
+
+#app{
+  min-height:100vh;
 }
 
-.avatar{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#8b5cf6,#ec4899);
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  height:64px;
   display:flex;
   align-items:center;
-  justify-content:center;
-  font-size:35px;
-  font-weight:bold;
-  margin:0 auto 15px;
+  justify-content:space-between;
+  padding:0 15px;
+  background:rgba(13,13,18,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #292932;
 }
 
-.profile h2{
-  margin-bottom:6px;
+.brand{
+  font-size:23px;
+  font-weight:800;
 }
 
-.username{
-  color:#9ca3af;
-  margin-bottom:10px;
+.brand span{
+  color:#9856ff;
 }
 
-.bio{
-  color:#bbb;
-  margin-bottom:22px;
+.topBtns{
+  display:flex;
+  gap:8px;
 }
 
-.logout{
+.iconBtn{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:#202027;
+  color:white;
+  font-size:19px;
+}
+
+.container{
   width:100%;
-  padding:13px;
-  border:1px solid #444;
+  max-width:650px;
+  margin:auto;
+  padding:15px;
+}
+
+/* NAV */
+
+.nav{
+  display:flex;
+  gap:8px;
+  background:#141419;
+  padding:7px;
+  border-radius:18px;
+  margin-bottom:15px;
+}
+
+.nav button{
+  flex:1;
+  border:0;
+  background:transparent;
+  color:#999;
+  padding:11px 4px;
   border-radius:12px;
-  background:#17171f;
+  font-size:13px;
+}
+
+.nav button.active{
+  background:#8c49f5;
+  color:white;
+}
+
+/* CREATE */
+
+.card{
+  background:#15151c;
+  border:1px solid #292933;
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:15px;
+}
+
+.createTitle{
+  font-weight:bold;
+  margin-bottom:13px;
+}
+
+textarea{
+  width:100%;
+  min-height:75px;
+  resize:none;
+  border:1px solid #30303a;
+  border-radius:14px;
+  padding:13px;
+  background:#101015;
+  color:white;
+  outline:none;
+}
+
+.postTools{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+}
+
+.fileLabel{
+  flex:1;
+  padding:12px;
+  border-radius:12px;
+  background:#25252e;
+  color:#ccc;
+  text-align:center;
+  font-size:13px;
+}
+
+#mediaInput{
+  display:none;
+}
+
+.postBtn{
+  border:0;
+  padding:12px 18px;
+  border-radius:12px;
+  background:#914cff;
   color:white;
   font-weight:bold;
 }
 
-.hidden{
-  display:none;
+/* POST */
+
+.postHeader{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.footer{
-  text-align:center;
-  color:#666;
+.avatar{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#9c58ff,#432080);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+  font-weight:bold;
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.postName{
+  font-weight:bold;
+}
+
+.postTime{
+  color:#777;
   font-size:12px;
-  margin-top:18px;
+  margin-top:3px;
+}
+
+.more{
+  margin-left:auto;
+  color:#aaa;
+  background:none;
+  border:0;
+  font-size:20px;
+}
+
+.caption{
+  margin:13px 0;
+  line-height:1.5;
+  color:#ddd;
+}
+
+.postMedia{
+  width:100%;
+  max-height:600px;
+  object-fit:cover;
+  border-radius:15px;
+  background:#09090d;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+
+.actionBtn{
+  border:0;
+  background:#22222a;
+  color:#ccc;
+  border-radius:12px;
+  padding:10px 13px;
+}
+
+.actionBtn.liked{
+  color:#ff5d9e;
+}
+
+.comments{
+  margin-top:12px;
+}
+
+.comment{
+  padding:9px 0;
+  border-top:1px solid #27272f;
+  font-size:14px;
+}
+
+.comment b{
+  margin-right:5px;
+}
+
+.commentBox{
+  display:flex;
+  gap:7px;
+  margin-top:10px;
+}
+
+.commentBox input{
+  flex:1;
+  background:#101015;
+  color:white;
+  border:1px solid #30303a;
+  border-radius:12px;
+  padding:11px;
+  outline:none;
+}
+
+.commentBox button{
+  border:0;
+  background:#914cff;
+  color:white;
+  border-radius:12px;
+  padding:0 14px;
+}
+
+/* PROFILE */
+
+.profileCard{
+  text-align:center;
+}
+
+.profileBig{
+  width:95px;
+  height:95px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#a35cff,#47227e);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  font-weight:bold;
+}
+
+.profileBig img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.profileName{
+  font-size:23px;
+  font-weight:bold;
+}
+
+.username{
+  color:#888;
+  margin-top:4px;
+}
+
+.bio{
+  color:#bbb;
+  margin:12px 0;
+}
+
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  margin:18px 0;
+}
+
+.stat b{
+  display:block;
+  font-size:19px;
+}
+
+.stat span{
+  color:#888;
+  font-size:12px;
+}
+
+.profileActions{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+}
+
+.profileActions button{
+  border:0;
+  padding:11px 20px;
+  border-radius:12px;
+  background:#8f4cf5;
+  color:white;
+  font-weight:bold;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  background:rgba(0,0,0,.72);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modalBox{
+  width:100%;
+  max-width:450px;
+  background:#18181f;
+  border:1px solid #30303a;
+  border-radius:22px;
+  padding:20px;
+}
+
+.modalTitle{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.close{
+  float:right;
+  border:0;
+  background:none;
+  color:#aaa;
+  font-size:22px;
+}
+
+.empty{
+  text-align:center;
+  color:#777;
+  padding:40px 10px;
+}
+
+.loading{
+  text-align:center;
+  padding:30px;
+  color:#999;
 }
 </style>
 </head>
 
 <body>
 
+<!-- AUTH PAGE -->
+
+<section id="authPage">
+
+<div class="authBox">
+
+<div class="logo">VYNZO <span>Social</span></div>
+<div class="tagline">Connect • Share • Follow</div>
+
+<div class="tabs">
+<button id="loginTab" class="active" onclick="showLogin()">Login</button>
+<button id="signupTab" onclick="showSignup()">Create Account</button>
+</div>
+
+<div id="authForm">
+
+<input id="email" class="input" type="email" placeholder="Email address">
+
+<input id="password" class="input" type="password" placeholder="Password">
+
+<div id="nameBox" class="hidden">
+<input id="fullName" class="input" type="text" placeholder="Full name">
+</div>
+
+<button id="authBtn" class="primary" onclick="emailAuth()">🔐 Login</button>
+
+</div>
+
+<div class="or">OR</div>
+
+<button class="google" onclick="googleLogin()">
+🌐 Continue with Google
+</button>
+
+<div id="authMessage" class="message"></div>
+
+</div>
+
+</section>
+
+
+<!-- APP -->
+
+<section id="app" class="hidden">
+
+<header class="topbar">
+
+<div class="brand">VYNZO <span>Social</span></div>
+
+<div class="topBtns">
+<button class="iconBtn" onclick="loadFeed()">⌂</button>
+<button class="iconBtn" onclick="showProfile()">👤</button>
+<button class="iconBtn" onclick="logout()">↪</button>
+</div>
+
+</header>
+
 <div class="container">
 
-  <div class="logo">VYNZO <span>Social</span></div>
-  <div class="subtitle">Connect • Share • Follow</div>
-
-  <!-- AUTH SCREEN -->
-  <div class="card" id="authScreen">
-
-    <div class="tabs">
-      <button id="loginTab" class="active" onclick="showLogin()">Login</button>
-      <button id="signupTab" onclick="showSignup()">Create Account</button>
-    </div>
-
-    <!-- LOGIN -->
-    <div id="loginBox">
-
-      <input
-        type="email"
-        id="loginEmail"
-        placeholder="Email address"
-      >
-
-      <input
-        type="password"
-        id="loginPassword"
-        placeholder="Password"
-      >
-
-      <button class="main-btn" onclick="login()">
-        🔐 Login
-      </button>
-
-      <div class="divider">OR</div>
-
-      <button class="google-btn" onclick="googleLogin()">
-        🔵 Continue with Google
-      </button>
-
-    </div>
-
-    <!-- SIGNUP -->
-    <div id="signupBox" class="hidden">
-
-      <input
-        type="text"
-        id="fullName"
-        placeholder="Full name"
-      >
-
-      <input
-        type="text"
-        id="username"
-        placeholder="Username"
-      >
-
-      <input
-        type="email"
-        id="signupEmail"
-        placeholder="Email address"
-      >
-
-      <input
-        type="password"
-        id="signupPassword"
-        placeholder="Password"
-      >
-
-      <button class="main-btn" onclick="signup()">
-        ✨ Create Account
-      </button>
-
-      <div class="divider">OR</div>
-
-      <button class="google-btn" onclick="googleLogin()">
-        🔵 Continue with Google
-      </button>
-
-    </div>
-
-    <div class="message" id="message"></div>
-
-  </div>
+<div class="nav">
+<button id="feedNav" class="active" onclick="showFeed()">🏠 Feed</button>
+<button id="profileNav" onclick="showProfile()">👤 Profile</button>
+</div>
 
 
-  <!-- PROFILE SCREEN -->
-  <div class="card profile hidden" id="profileScreen">
+<!-- FEED -->
 
-    <div class="avatar" id="avatar">
-      V
-    </div>
+<div id="feedPage">
 
-    <h2 id="profileName">VYNZO User</h2>
+<div class="card">
 
-    <div class="username" id="profileUsername">
-      @user
-    </div>
+<div class="createTitle">✨ Create a Post</div>
 
-    <div class="bio" id="profileBio">
-      Welcome to VYNZO Social 🚀
-    </div>
+<textarea id="caption" placeholder="What's on your mind?"></textarea>
 
-    <button class="logout" onclick="logout()">
-      🚪 Logout
-    </button>
+<div class="postTools">
 
-  </div>
+<label class="fileLabel">
+📷 Photo / 🎥 Video
+<input id="mediaInput" type="file" accept="image/*,video/*">
+</label>
 
-  <div class="footer">
-    Powered by VYNZO Social
-  </div>
+<button class="postBtn" onclick="createPost()">Post</button>
+
+</div>
+
+<div id="selectedFile" class="message"></div>
+
+</div>
+
+<div id="feed">
+<div class="loading">Loading posts...</div>
+</div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div id="profilePage" class="hidden">
+
+<div id="profileCard" class="card profileCard">
+<div class="loading">Loading profile...</div>
+</div>
+
+<div id="myPosts"></div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- EDIT PROFILE MODAL -->
+
+<div id="editModal" class="modal hidden">
+
+<div class="modalBox">
+
+<button class="close" onclick="closeEdit()">×</button>
+
+<div class="modalTitle">Edit Profile</div>
+
+<input id="editName" class="input" placeholder="Full name">
+
+<input id="editUsername" class="input" placeholder="Username">
+
+<textarea id="editBio" placeholder="Bio"></textarea>
+
+<br><br>
+
+<button class="primary" onclick="saveProfile()">Save Profile</button>
+
+<div class="message" id="editMessage"></div>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* ================================
-   SUPABASE CONFIG
-================================ */
+/* =========================
+SUPABASE
+========================= */
 
 const SUPABASE_URL =
 "https://gvfbdfzrhgknqypwwvcy.supabase.co";
@@ -333,301 +687,186 @@ window.supabase.createClient(
 );
 
 
-/* ================================
-   SCREEN SWITCH
-================================ */
+/* =========================
+STATE
+========================= */
+
+let currentUser = null;
+let isSignup = false;
+
+
+/* =========================
+HELPERS
+========================= */
+
+function $(id){
+  return document.getElementById(id);
+}
+
+function showMessage(text){
+  $("authMessage").textContent = text;
+}
+
+function escapeHTML(text){
+  if(!text) return "";
+  return text
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+
+/* =========================
+AUTH TABS
+========================= */
 
 function showLogin(){
 
-  document.getElementById("loginBox")
-    .classList.remove("hidden");
+  isSignup = false;
 
-  document.getElementById("signupBox")
-    .classList.add("hidden");
+  $("loginTab").classList.add("active");
+  $("signupTab").classList.remove("active");
 
-  document.getElementById("loginTab")
-    .classList.add("active");
+  $("nameBox").classList.add("hidden");
 
-  document.getElementById("signupTab")
-    .classList.remove("active");
+  $("authBtn").textContent = "🔐 Login";
 
-  clearMessage();
+  showMessage("");
 }
 
 
 function showSignup(){
 
-  document.getElementById("loginBox")
-    .classList.add("hidden");
+  isSignup = true;
 
-  document.getElementById("signupBox")
-    .classList.remove("hidden");
+  $("signupTab").classList.add("active");
+  $("loginTab").classList.remove("active");
 
-  document.getElementById("loginTab")
-    .classList.remove("active");
+  $("nameBox").classList.remove("hidden");
 
-  document.getElementById("signupTab")
-    .classList.add("active");
+  $("authBtn").textContent = "✨ Create Account";
 
-  clearMessage();
+  showMessage("");
 }
 
 
-/* ================================
-   MESSAGE
-================================ */
+/* =========================
+EMAIL AUTH
+========================= */
 
-function showMessage(text){
+async function emailAuth(){
 
-  document.getElementById("message").innerText = text;
-
-}
-
-function clearMessage(){
-
-  document.getElementById("message").innerText = "";
-
-}
-
-
-/* ================================
-   EMAIL LOGIN
-================================ */
-
-async function login(){
-
-  const email =
-    document.getElementById("loginEmail").value.trim();
-
-  const password =
-    document.getElementById("loginPassword").value;
+  const email = $("email").value.trim();
+  const password = $("password").value;
+  const fullName = $("fullName").value.trim();
 
   if(!email || !password){
-
-    showMessage("❌ Email and password required");
+    showMessage("⚠️ Email and password required");
     return;
   }
 
-  showMessage("⏳ Logging in...");
+  showMessage("⏳ Please wait...");
 
-  const { data, error } =
-    await supabaseClient.auth.signInWithPassword({
-      email:email,
-      password:password
-    });
+  if(isSignup){
 
-  if(error){
-
-    showMessage("❌ " + error.message);
-    return;
-  }
-
-  showMessage("✅ Login successful!");
-
-  await loadUser(data.user);
-}
-
-
-/* ================================
-   EMAIL SIGNUP
-================================ */
-
-async function signup(){
-
-  const fullName =
-    document.getElementById("fullName").value.trim();
-
-  const username =
-    document.getElementById("username").value.trim();
-
-  const email =
-    document.getElementById("signupEmail").value.trim();
-
-  const password =
-    document.getElementById("signupPassword").value;
-
-  if(!fullName || !username || !email || !password){
-
-    showMessage("❌ Please fill all fields");
-    return;
-  }
-
-  if(password.length < 6){
-
-    showMessage("❌ Password must be at least 6 characters");
-    return;
-  }
-
-  showMessage("⏳ Creating account...");
-
-  const { data, error } =
+    const {data,error} =
     await supabaseClient.auth.signUp({
-
-      email:email,
-
-      password:password,
-
+      email,
+      password,
       options:{
         data:{
           full_name:fullName,
-          username:username
+          username:
+          fullName
+          ? fullName.toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,20)
+          : "user"
         }
       }
-
     });
 
-  if(error){
+    if(error){
+      showMessage("❌ " + error.message);
+      return;
+    }
 
-    showMessage("❌ " + error.message);
-    return;
-  }
+    showMessage("✅ Account created. You can login now.");
 
-  if(data.user){
+  }else{
 
-    showMessage("✅ Account created!");
+    const {data,error} =
+    await supabaseClient.auth.signInWithPassword({
+      email,
+      password
+    });
 
-    if(data.session){
+    if(error){
+      showMessage("❌ " + error.message);
+      return;
+    }
 
-      await loadUser(data.user);
-
+    if(data.user){
+      await startApp(data.user);
     }
 
   }
-
 }
 
 
-/* ================================
-   GOOGLE LOGIN
-================================ */
+/* =========================
+GOOGLE LOGIN
+========================= */
 
 async function googleLogin(){
 
   showMessage("⏳ Opening Google Login...");
 
-  const { error } =
-    await supabaseClient.auth.signInWithOAuth({
-
-      provider:"google"
-
-    });
+  const {error} =
+  await supabaseClient.auth.signInWithOAuth({
+    provider:"google",
+    options:{
+      redirectTo:
+      "https://rahulxylf-sys.github.io/vynzo-social/"
+    }
+  });
 
   if(error){
-
     showMessage("❌ " + error.message);
-
   }
-
 }
 
 
-/* ================================
-   LOAD USER
-================================ */
-
-async function loadUser(user){
-
-  if(!user) return;
-
-  const { data:profile } =
-    await supabaseClient
-      .from("profiles")
-      .select("*")
-      .eq("id",user.id)
-      .maybeSingle();
-
-
-  document.getElementById("authScreen")
-    .classList.add("hidden");
-
-  document.getElementById("profileScreen")
-    .classList.remove("hidden");
-
-
-  let name =
-    profile?.full_name ||
-    user.user_metadata?.full_name ||
-    user.email?.split("@")[0] ||
-    "VYNZO User";
-
-
-  let username =
-    profile?.username ||
-    user.user_metadata?.username ||
-    "user";
-
-
-  document.getElementById("profileName")
-    .innerText = name;
-
-  document.getElementById("profileUsername")
-    .innerText = "@" + username;
-
-  document.getElementById("profileBio")
-    .innerText =
-      profile?.bio ||
-      "Welcome to VYNZO Social 🚀";
-
-
-  document.getElementById("avatar")
-    .innerText =
-      name.charAt(0).toUpperCase();
-
-}
-
-
-/* ================================
-   LOGOUT
-================================ */
-
-async function logout(){
-
-  await supabaseClient.auth.signOut();
-
-  document.getElementById("profileScreen")
-    .classList.add("hidden");
-
-  document.getElementById("authScreen")
-    .classList.remove("hidden");
-
-  showLogin();
-
-}
-
-
-/* ================================
-   SESSION CHECK
-================================ */
+/* =========================
+SESSION
+========================= */
 
 async function checkSession(){
 
-  const {
-    data:{
-      session
-    }
-  } =
-    await supabaseClient.auth.getSession();
+  const {data} =
+  await supabaseClient.auth.getSession();
 
+  if(data.session){
 
-  if(session){
+    await startApp(data.session.user);
 
-    await loadUser(session.user);
+  }else{
+
+    $("authPage").classList.remove("hidden");
+    $("app").classList.add("hidden");
 
   }
-
 }
 
 
-/* ================================
-   AUTH STATE
-================================ */
-
 supabaseClient.auth.onAuthStateChange(
-  async (event, session)=>{
+  async(event,session)=>{
 
-    if(session && event === "SIGNED_IN"){
+    if(session && !currentUser){
 
-      await loadUser(session.user);
+      setTimeout(()=>{
+        startApp(session.user);
+      },100);
 
     }
 
@@ -635,13 +874,867 @@ supabaseClient.auth.onAuthStateChange(
 );
 
 
-/* ================================
-   START
-================================ */
+/* =========================
+START APP
+========================= */
+
+async function startApp(user){
+
+  currentUser = user;
+
+  $("authPage").classList.add("hidden");
+  $("app").classList.remove("hidden");
+
+  await ensureProfile();
+
+  await loadFeed();
+
+}
+
+
+/* =========================
+PROFILE AUTO CHECK
+========================= */
+
+async function ensureProfile(){
+
+  const {data} =
+  await supabaseClient
+  .from("profiles")
+  .select("*")
+  .eq("id",currentUser.id)
+  .maybeSingle();
+
+  if(!data){
+
+    const name =
+    currentUser.user_metadata?.full_name ||
+    currentUser.email?.split("@")[0] ||
+    "User";
+
+    const username =
+    currentUser.user_metadata?.username ||
+    "user" + Math.floor(Math.random()*99999);
+
+    await supabaseClient
+    .from("profiles")
+    .insert({
+      id:currentUser.id,
+      username:username.toLowerCase(),
+      full_name:name
+    });
+
+  }
+
+}
+
+
+/* =========================
+LOAD FEED
+========================= */
+
+async function loadFeed(){
+
+  showFeed();
+
+  $("feed").innerHTML =
+  '<div class="loading">⏳ Loading posts...</div>';
+
+  const {data,error} =
+  await supabaseClient
+  .from("posts")
+  .select(`
+    *,
+    profiles (
+      id,
+      username,
+      full_name,
+      avatar_url
+    )
+  `)
+  .order("created_at",{ascending:false});
+
+  if(error){
+
+    $("feed").innerHTML =
+    '<div class="empty">Unable to load posts.</div>';
+
+    return;
+  }
+
+  if(!data || data.length===0){
+
+    $("feed").innerHTML =
+    '<div class="empty">✨ No posts yet.<br>Be the first to post!</div>';
+
+    return;
+  }
+
+  $("feed").innerHTML =
+  data.map(postHTML).join("");
+
+  await refreshLikes();
+
+}
+
+
+/* =========================
+POST HTML
+========================= */
+
+function postHTML(post){
+
+  const p = post.profiles || {};
+
+  const avatar =
+  p.avatar_url
+  ? `<img src="${p.avatar_url}">`
+  : escapeHTML((p.full_name || p.username || "U")[0].toUpperCase());
+
+  const media =
+  post.media_type === "video"
+  ? `<video class="postMedia" controls src="${post.media_url}"></video>`
+  : post.media_url
+  ? `<img class="postMedia" src="${post.media_url}">`
+  : "";
+
+  const deleteBtn =
+  post.user_id === currentUser.id
+  ? `<button class="more" onclick="deletePost('${post.id}')">🗑️</button>`
+  : "";
+
+  return `
+
+  <article class="card" id="post-${post.id}">
+
+    <div class="postHeader">
+
+      <div class="avatar">
+        ${avatar}
+      </div>
+
+      <div>
+        <div class="postName">
+          ${escapeHTML(p.full_name || p.username || "User")}
+        </div>
+
+        <div class="postTime">
+          @${escapeHTML(p.username || "user")}
+          · ${formatDate(post.created_at)}
+        </div>
+      </div>
+
+      ${deleteBtn}
+
+    </div>
+
+    ${
+      post.caption
+      ? `<div class="caption">${escapeHTML(post.caption)}</div>`
+      : ""
+    }
+
+    ${media}
+
+    <div class="actions">
+
+      <button
+      class="actionBtn"
+      id="like-${post.id}"
+      onclick="toggleLike('${post.id}')">
+      ❤️ Like
+      </button>
+
+      <button
+      class="actionBtn"
+      onclick="loadComments('${post.id}')">
+      💬 Comment
+      </button>
+
+      <button
+      class="actionBtn"
+      onclick="sharePost('${post.id}')">
+      ↗ Share
+      </button>
+
+    </div>
+
+    <div
+    class="comments"
+    id="comments-${post.id}">
+    </div>
+
+  </article>
+
+  `;
+}
+
+
+/* =========================
+DATE
+========================= */
+
+function formatDate(date){
+
+  const d = new Date(date);
+
+  return d.toLocaleDateString(undefined,{
+    day:"numeric",
+    month:"short",
+    year:"numeric"
+  });
+
+}
+
+
+/* =========================
+CREATE POST
+========================= */
+
+$("mediaInput").addEventListener("change",function(){
+
+  if(this.files[0]){
+
+    $("selectedFile").textContent =
+    "📎 " + this.files[0].name;
+
+  }
+
+});
+
+
+async function createPost(){
+
+  const caption =
+  $("caption").value.trim();
+
+  const file =
+  $("mediaInput").files[0];
+
+  if(!caption && !file){
+
+    alert("Write something or select a photo/video.");
+
+    return;
+  }
+
+  $("selectedFile").textContent =
+  "⏳ Publishing...";
+
+  let media_url = null;
+  let media_type = null;
+
+
+  /* Upload media */
+
+  if(file){
+
+    media_type =
+    file.type.startsWith("video")
+    ? "video"
+    : "image";
+
+    const bucket =
+    media_type === "video"
+    ? "videos"
+    : "posts";
+
+    const extension =
+    file.name.split(".").pop();
+
+    const path =
+    currentUser.id +
+    "/" +
+    Date.now() +
+    "." +
+    extension;
+
+    const {error:uploadError} =
+    await supabaseClient.storage
+    .from(bucket)
+    .upload(path,file,{
+      upsert:false
+    });
+
+    if(uploadError){
+
+      $("selectedFile").textContent =
+      "❌ Upload failed: " +
+      uploadError.message;
+
+      return;
+    }
+
+    const {data:urlData} =
+    supabaseClient.storage
+    .from(bucket)
+    .getPublicUrl(path);
+
+    media_url =
+    urlData.publicUrl;
+
+  }
+
+
+  const {error} =
+  await supabaseClient
+  .from("posts")
+  .insert({
+    user_id:currentUser.id,
+    media_url,
+    media_type,
+    caption
+  });
+
+
+  if(error){
+
+    $("selectedFile").textContent =
+    "❌ " + error.message;
+
+    return;
+  }
+
+
+  $("caption").value="";
+  $("mediaInput").value="";
+  $("selectedFile").textContent =
+  "✅ Posted successfully!";
+
+  await loadFeed();
+
+}
+
+
+/* =========================
+LIKE
+========================= */
+
+async function refreshLikes(){
+
+  const {data} =
+  await supabaseClient
+  .from("likes")
+  .select("post_id")
+  .eq("user_id",currentUser.id);
+
+  if(!data) return;
+
+  data.forEach(x=>{
+
+    const btn =
+    $("like-"+x.post_id);
+
+    if(btn){
+
+      btn.classList.add("liked");
+
+      btn.textContent =
+      "❤️ Liked";
+
+    }
+
+  });
+
+}
+
+
+async function toggleLike(postId){
+
+  const {data} =
+  await supabaseClient
+  .from("likes")
+  .select("*")
+  .eq("post_id",postId)
+  .eq("user_id",currentUser.id)
+  .maybeSingle();
+
+  if(data){
+
+    await supabaseClient
+    .from("likes")
+    .delete()
+    .eq("post_id",postId)
+    .eq("user_id",currentUser.id);
+
+  }else{
+
+    await supabaseClient
+    .from("likes")
+    .insert({
+      post_id:postId,
+      user_id:currentUser.id
+    });
+
+  }
+
+  const btn =
+  $("like-"+postId);
+
+  if(btn){
+
+    const liked = !data;
+
+    btn.classList.toggle("liked",liked);
+
+    btn.textContent =
+    liked ? "❤️ Liked" : "❤️ Like";
+
+  }
+
+}
+
+
+/* =========================
+COMMENTS
+========================= */
+
+async function loadComments(postId){
+
+  const box =
+  $("comments-"+postId);
+
+  if(!box) return;
+
+  box.innerHTML =
+  '<div class="loading">Loading comments...</div>';
+
+  const {data,error} =
+  await supabaseClient
+  .from("comments")
+  .select(`
+    *,
+    profiles(username,full_name)
+  `)
+  .eq("post_id",postId)
+  .order("created_at",{ascending:true});
+
+  if(error){
+
+    box.innerHTML =
+    '<div class="message">Unable to load comments.</div>';
+
+    return;
+  }
+
+  let html="";
+
+  if(data){
+
+    html =
+    data.map(c=>`
+
+      <div class="comment">
+        <b>${escapeHTML(
+          c.profiles?.full_name ||
+          c.profiles?.username ||
+          "User"
+        )}</b>
+        ${escapeHTML(c.content)}
+      </div>
+
+    `).join("");
+
+  }
+
+  html += `
+
+    <div class="commentBox">
+
+      <input
+      id="commentInput-${postId}"
+      placeholder="Write a comment...">
+
+      <button
+      onclick="addComment('${postId}')">
+      Send
+      </button>
+
+    </div>
+
+  `;
+
+  box.innerHTML=html;
+
+}
+
+
+async function addComment(postId){
+
+  const input =
+  $("commentInput-"+postId);
+
+  if(!input || !input.value.trim()) return;
+
+  const content =
+  input.value.trim();
+
+  const {error} =
+  await supabaseClient
+  .from("comments")
+  .insert({
+    post_id:postId,
+    user_id:currentUser.id,
+    content
+  });
+
+  if(error){
+
+    alert(error.message);
+    return;
+
+  }
+
+  await loadComments(postId);
+
+}
+
+
+/* =========================
+DELETE POST
+========================= */
+
+async function deletePost(postId){
+
+  if(!confirm("Delete this post?")) return;
+
+  const {error} =
+  await supabaseClient
+  .from("posts")
+  .delete()
+  .eq("id",postId)
+  .eq("user_id",currentUser.id);
+
+  if(error){
+
+    alert(error.message);
+    return;
+
+  }
+
+  await loadFeed();
+
+}
+
+
+/* =========================
+SHARE
+========================= */
+
+async function sharePost(postId){
+
+  const url =
+  location.origin +
+  location.pathname +
+  "?post=" +
+  postId;
+
+  if(navigator.share){
+
+    try{
+
+      await navigator.share({
+        title:"VYNZO Social",
+        text:"Check this post on VYNZO Social",
+        url:url
+      });
+
+    }catch(e){}
+
+  }else{
+
+    await navigator.clipboard.writeText(url);
+
+    alert("Post link copied!");
+
+  }
+
+}
+
+
+/* =========================
+PROFILE
+========================= */
+
+async function showProfile(){
+
+  $("feedPage").classList.add("hidden");
+  $("profilePage").classList.remove("hidden");
+
+  $("feedNav").classList.remove("active");
+  $("profileNav").classList.add("active");
+
+  await loadProfile();
+
+}
+
+
+async function loadProfile(){
+
+  const {data:profile} =
+  await supabaseClient
+  .from("profiles")
+  .select("*")
+  .eq("id",currentUser.id)
+  .single();
+
+  if(!profile) return;
+
+
+  const avatar =
+  profile.avatar_url
+  ? `<img src="${profile.avatar_url}">`
+  : escapeHTML(
+      (profile.full_name ||
+      profile.username ||
+      "U")[0].toUpperCase()
+    );
+
+
+  const {count:followers} =
+  await supabaseClient
+  .from("follows")
+  .select("*",{count:"exact",head:true})
+  .eq("following_id",currentUser.id);
+
+
+  const {count:following} =
+  await supabaseClient
+  .from("follows")
+  .select("*",{count:"exact",head:true})
+  .eq("follower_id",currentUser.id);
+
+
+  const {count:posts} =
+  await supabaseClient
+  .from("posts")
+  .select("*",{count:"exact",head:true})
+  .eq("user_id",currentUser.id);
+
+
+  $("profileCard").innerHTML=`
+
+    <div class="profileBig">
+      ${avatar}
+    </div>
+
+    <div class="profileName">
+      ${escapeHTML(profile.full_name || "VYNZO User")}
+    </div>
+
+    <div class="username">
+      @${escapeHTML(profile.username)}
+    </div>
+
+    <div class="bio">
+      ${escapeHTML(profile.bio || "No bio yet.")}
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <b>${posts || 0}</b>
+        <span>Posts</span>
+      </div>
+
+      <div class="stat">
+        <b>${followers || 0}</b>
+        <span>Followers</span>
+      </div>
+
+      <div class="stat">
+        <b>${following || 0}</b>
+        <span>Following</span>
+      </div>
+
+    </div>
+
+    <div class="profileActions">
+
+      <button onclick='openEdit(${JSON.stringify(profile)})'>
+        ✏️ Edit Profile
+      </button>
+
+      <button onclick="logout()">
+        Logout
+      </button>
+
+    </div>
+
+  `;
+
+
+  await loadMyPosts();
+
+}
+
+
+async function loadMyPosts(){
+
+  const {data} =
+  await supabaseClient
+  .from("posts")
+  .select(`
+    *,
+    profiles(
+      username,
+      full_name,
+      avatar_url
+    )
+  `)
+  .eq("user_id",currentUser.id)
+  .order("created_at",{ascending:false});
+
+
+  if(!data || data.length===0){
+
+    $("myPosts").innerHTML =
+    '<div class="empty">You have no posts yet.</div>';
+
+    return;
+
+  }
+
+
+  $("myPosts").innerHTML =
+  data.map(postHTML).join("");
+
+}
+
+
+/* =========================
+EDIT PROFILE
+========================= */
+
+function openEdit(profile){
+
+  $("editName").value =
+  profile.full_name || "";
+
+  $("editUsername").value =
+  profile.username || "";
+
+  $("editBio").value =
+  profile.bio || "";
+
+  $("editModal").classList.remove("hidden");
+
+}
+
+
+function closeEdit(){
+
+  $("editModal").classList.add("hidden");
+
+}
+
+
+async function saveProfile(){
+
+  const full_name =
+  $("editName").value.trim();
+
+  const username =
+  $("editUsername").value
+  .trim()
+  .toLowerCase()
+  .replace(/[^a-z0-9_]/g,"");
+
+  const bio =
+  $("editBio").value.trim();
+
+
+  if(!username){
+
+    $("editMessage").textContent =
+    "Username required";
+
+    return;
+
+  }
+
+
+  const {error} =
+  await supabaseClient
+  .from("profiles")
+  .update({
+    full_name,
+    username,
+    bio
+  })
+  .eq("id",currentUser.id);
+
+
+  if(error){
+
+    $("editMessage").textContent =
+    "❌ " + error.message;
+
+    return;
+
+  }
+
+
+  $("editMessage").textContent =
+  "✅ Profile updated!";
+
+  setTimeout(async()=>{
+
+    closeEdit();
+    await loadProfile();
+
+  },700);
+
+}
+
+
+/* =========================
+NAVIGATION
+========================= */
+
+function showFeed(){
+
+  $("feedPage").classList.remove("hidden");
+  $("profilePage").classList.add("hidden");
+
+  $("feedNav").classList.add("active");
+  $("profileNav").classList.remove("active");
+
+}
+
+
+function showProfilePage(){
+
+  showProfile();
+
+}
+
+
+/* =========================
+LOGOUT
+========================= */
+
+async function logout(){
+
+  await supabaseClient.auth.signOut();
+
+  currentUser=null;
+
+  $("app").classList.add("hidden");
+  $("authPage").classList.remove("hidden");
+
+  showLogin();
+
+}
+
+
+/* =========================
+START
+========================= */
 
 checkSession();
 
 </script>
 
 </body>
-</html>
+  </html>
